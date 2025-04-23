@@ -8,7 +8,6 @@ export default function LeaveRequestList({
 }: {
   requests: LeaveRequest[];
 }) {
-  console.log(requests);
   return (
     <div>
       {requests.map((req) => (
