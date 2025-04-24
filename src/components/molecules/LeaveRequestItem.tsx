@@ -1,13 +1,14 @@
 "use client";
 
 import { LeaveRequest } from "@/types/leaveRequest";
-import { Card, CardHeader, Text } from "@ui5/webcomponents-react";
+import { Card, CardHeader, Text, Button } from "@ui5/webcomponents-react";
 
-export default function LeaveRequestItem({
-  request,
-}: {
+interface Props {
   request: LeaveRequest;
-}) {
+  onStatusChange: (id: string, newStatus: "APPROVED" | "REJECTED") => void;
+}
+
+export default function LeaveRequestItem({ request, onStatusChange }: Props) {
   const formatDate = (date: Date) =>
     new Date(date).toLocaleDateString(undefined, {
       year: "numeric",
@@ -35,6 +36,22 @@ export default function LeaveRequestItem({
         <Text>
           Reason: <strong>{request.reason}</strong>
         </Text>
+        {request.status === "PENDING" && (
+          <div style={{ marginTop: "1rem", display: "flex", gap: "1rem" }}>
+            <Button
+              design="Positive"
+              onClick={() => onStatusChange(request.id, "APPROVED")}
+            >
+              Approve
+            </Button>
+            <Button
+              design="Negative"
+              onClick={() => onStatusChange(request.id, "REJECTED")}
+            >
+              Reject
+            </Button>
+          </div>
+        )}
       </div>
     </Card>
   );
