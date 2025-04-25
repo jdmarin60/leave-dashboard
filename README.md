@@ -14,13 +14,21 @@ A simple leave request dashboard built with **Next.js** and **SAP UI5 Web Compon
 
 ```bash
 npm install
+```
+
+```bash
 npm run dev
+```
 
 Then open your browser at http://localhost:3000.
 Press Go to Leave Requests
 
 🧪 How to Run the Tests
+
+```bash
 npm run test
+```
+
 Tests are written with Vitest and use @testing-library/react for UI interaction.
 
 🧱 UI5 Components Used
@@ -33,5 +41,3 @@ This project uses the following components from @ui5/webcomponents-react:
 <Card />, <CardHeader /> – for organizing leave request info
 
 Other basic layout components (e.g. <FlexBox />, <Title /> if used)
-
-```
