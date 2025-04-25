@@ -4,7 +4,7 @@ A simple leave request dashboard built with **Next.js** and **SAP UI5 Web Compon
 
 ## 🚀 What Was Implemented
 
-- Display of leave requests with basic information
+- Display of leave requests with basic required information
 - **Status filtering** via dropdown
 - **Sort toggle** for ascending/descending date order
 - **Approve/Reject** functionality for requests
@@ -34,10 +34,28 @@ Tests are written with Vitest and use @testing-library/react for UI interaction.
 🧱 UI5 Components Used
 This project uses the following components from @ui5/webcomponents-react:
 
-<Button /> – for triggering actions (sort, approve, reject)
+For triggering actions (sort, approve, reject)
 
-<Select /> and <Option /> – for status filtering
+```
+<Button />
+```
 
-<Card />, <CardHeader /> – for organizing leave request info
+For status filtering
 
-Other basic layout components (e.g. <FlexBox />, <Title /> if used)
+```
+<Select />
+```
+
+```
+<Option />
+```
+
+For organizing leave request info
+
+```
+<Card />
+```
+
+```
+<CardHeader />
+```
