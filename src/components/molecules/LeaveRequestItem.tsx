@@ -5,10 +5,15 @@ import { Card, CardHeader, Text, Button } from "@ui5/webcomponents-react";
 
 interface Props {
   request: LeaveRequest;
-  onStatusChange: (id: string, newStatus: "APPROVED" | "REJECTED") => void;
+  onApprove: (id: string) => void;
+  onReject: (id: string) => void;
 }
 
-export default function LeaveRequestItem({ request, onStatusChange }: Props) {
+export default function LeaveRequestItem({
+  request,
+  onApprove,
+  onReject,
+}: Props) {
   const formatDate = (date: Date) =>
     new Date(date).toLocaleDateString(undefined, {
       year: "numeric",
@@ -20,6 +25,7 @@ export default function LeaveRequestItem({ request, onStatusChange }: Props) {
     <Card style={{ marginBottom: "1rem" }}>
       <CardHeader
         titleText={request.name}
+        aria-label={request.name}
         subtitleText={`${formatDate(request.date_from)} → ${formatDate(
           request.date_to
         )}`}
@@ -38,16 +44,10 @@ export default function LeaveRequestItem({ request, onStatusChange }: Props) {
         </Text>
         {request.status === "PENDING" && (
           <div style={{ marginTop: "1rem", display: "flex", gap: "1rem" }}>
-            <Button
-              design="Positive"
-              onClick={() => onStatusChange(request.id, "APPROVED")}
-            >
+            <Button design="Positive" onClick={() => onApprove(request.id)}>
               Approve
             </Button>
-            <Button
-              design="Negative"
-              onClick={() => onStatusChange(request.id, "REJECTED")}
-            >
+            <Button design="Negative" onClick={() => onReject(request.id)}>
               Reject
             </Button>
           </div>

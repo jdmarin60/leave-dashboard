@@ -9,7 +9,10 @@ interface Props {
 
 export default function StatusFilter({ value, onChange }: Props) {
   return (
-    <Select onChange={(e) => onChange(e.target.value)}>
+    <Select
+      onChange={(e) => onChange(e.target.value)}
+      aria-label="status filter"
+    >
       <Option selected={value === "ALL"} value="ALL">
         All
       </Option>

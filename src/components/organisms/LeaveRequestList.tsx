@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { LeaveRequest } from "@/types/leaveRequest";
-import StatusFilter from "@/components/molecules/StatusFilter";
-import SortButton from "@/components/molecules/SortButton";
-import LeaveRequestItem from "@/components/molecules/LeaveRequestItem";
+import StatusFilter from "../molecules/StatusFilter";
+import SortButton from "../molecules/SortButton";
+import LeaveRequestItem from "../molecules/LeaveRequestItem";
 
 export default function LeaveRequestList({
   requests,
@@ -44,7 +44,8 @@ export default function LeaveRequestList({
         <LeaveRequestItem
           key={request.id}
           request={request}
-          onStatusChange={handleStatusChange}
+          onApprove={(id) => handleStatusChange(id, "APPROVED")}
+          onReject={(id) => handleStatusChange(id, "REJECTED")}
         />
       ))}
     </div>
