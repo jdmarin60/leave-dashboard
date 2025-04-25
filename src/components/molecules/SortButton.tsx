@@ -10,7 +10,7 @@ interface Props {
 
 export default function SortButton({ ascending, onToggle }: Props) {
   return (
-    <Button accessibleName="Sort by Date" icon="sort" onClick={onToggle}>
+    <Button accessibleName="Sort by Date" onClick={onToggle}>
       Sort by Date {ascending ? "↑" : "↓"}
     </Button>
   );
